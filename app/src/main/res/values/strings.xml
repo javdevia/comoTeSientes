@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ComoTeSientes</string>
+
+    <string name="pregunta_feliz">¿Te encuentras feliz?</string>
+    <string name="pregunta_triste">¿Te sientes triste?</string>
+    <string name="pregunta_asustado">¿Estás asustado?</string>
+    <string name="pregunta_asco">¿Sientes asco?</string>
+    <string name="pregunta_enojo">¿Te sientes enojado?</string>
+    <string name="si">SI</string>
+</resources>
