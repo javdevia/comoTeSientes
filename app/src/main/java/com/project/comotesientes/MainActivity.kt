@@ -9,7 +9,7 @@ import com.project.comotesientes.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var actualEmotion: Emotions = Emotions.triste
+    private lateinit var actualEmotion: Emotions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,20 +20,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        binding.tvPregunta.text = "¿Te sientes triste?"
+        actualEmotion = Emotions.feliz
+        binding.tvPregunta.text = "¿Te sientes ${actualEmotion.emotionText}?"
     }
 
     private fun initListeners() {
         //binding.btnYes.setOnClickListener { goToEmotionDetail() }
         binding.btnNo.setOnClickListener {
-            actualEmotion.nextEmotion()
-            binding.tvPregunta.text = when (actualEmotion) {
-                Emotions.triste -> "¿Te sientes triste?"
-                Emotions.enojado -> "¿Te sientes enojado?"
-                Emotions.asustado -> "¿Estás asustado?"
-                Emotions.desagrado -> "¿Sientes asco?"
-                Emotions.feliz -> "¿Te encuentras feliz?"
-            }
+            actualEmotion = actualEmotion.nextEmotion()
+            binding.tvPregunta.text = "¿Te sientes ${actualEmotion.emotionText}?"
+
+
+            //               when (actualEmotion) {
+            //             Emotions.triste -> "¿Te sientes triste?"
+            //           Emotions.enojado -> "¿Te sientes enojado?"
+            //         Emotions.asustado -> "¿Estás asustado?"
+            //       Emotions.desagrado -> "¿Sientes asco?"
+            //     Emotions.feliz -> "¿Te encuentras feliz?"
         }
     }
 }
